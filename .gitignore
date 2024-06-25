@@ -1,0 +1,6 @@
+.idea/
+**/*.o
+**/*.a
+.vscode/
+# Ignore any specific executables
+example

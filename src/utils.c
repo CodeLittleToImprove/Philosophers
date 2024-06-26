@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.h                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbui-quo <tbui-quo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tbui-quo <tbui-quo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 14:44:37 by tbui-quo          #+#    #+#             */
-/*   Updated: 2024/06/25 18:35:41 by tbui-quo         ###   ########.fr       */
+/*   Created: 2024/06/26 17:19:36 by tbui-quo          #+#    #+#             */
+/*   Updated: 2024/06/26 17:19:36 by tbui-quo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS_H
+#include "../lib/philo.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <stdbool.h>
-# include <limits.h>
-# include <pthread.h>
-# include <sys/time.h>
-
-#endif
+//exit not allowed
+void	error_exit(const char *error)
+{
+	printf(R "%s\n" RESET, error);
+	exit(EXIT_FAILURE);
+}

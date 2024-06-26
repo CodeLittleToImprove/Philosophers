@@ -10,10 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/philosophers.h"
+#include "../lib/philo.h"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	printf("test\n");
+	t_table	table;
+	if (argc == 5 || argc == 6)
+	{
+		parse_input(&table, argv);
+//		data_init(&table);
+//		dinner_start(&table);
+//		clean(&table);
+	}
+	else
+	{
+		error_exit("Wrong input:\n"G"Correct is .philo 5 800 200 200 [5]");
+	}
 	return (0);
 }

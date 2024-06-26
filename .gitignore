@@ -2,7 +2,7 @@
 **/*.a
 .vscode/
 # Ignore any specific executables
-Philosophers
+philo
 
 # Ignore build directories
 /cmake-build-debug/

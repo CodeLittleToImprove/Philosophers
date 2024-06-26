@@ -11,15 +11,13 @@
 # **************************************************************************** #
 
 # Target names
-NAME = philosophers
+NAME = philo
 
 # Directories and source files
-SRC = src/main.c
+SRC = src/main.c \
+src/utils.c \
+src/parsing.c
 OBJ = $(SRC:.c=.o)
-
-# Libraries and their paths
-LIBS = -Llib/libft -lft \
-       -Llib/ft_printf -lftprintf
 
 # Compiler and compilation flags
 CC = cc
@@ -36,8 +34,6 @@ all: $(NAME)
 
 # Rule to build the main executable
 $(NAME): $(OBJ)
-	@make -C lib/libft
-	@make -C lib/ft_printf
 	@echo "$(BLUE)$(CC) -o $(NAME) $(OBJ) $(LIBS)$(RESET)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBS)
 
@@ -52,21 +48,15 @@ debug: fclean all
 # Test target: build with only the -g flag for memory leak testing
 test: CFLAGS := -g
 test: $(OBJ)
-	@make -C lib/libft
-	@make -C lib/ft_printf
 	@echo "$(BLUE)$(CC) -o $(NAME) $(OBJ) $(LIBS)$(RESET)"
 	@$(CC) -o $(NAME) $(OBJ) $(LIBS)
 
 # Clean target: remove object files
 clean:
-	@make clean -C lib/libft
-	@make clean -C lib/ft_printf
 	@rm -f $(OBJ)
 
 # Full clean target: clean and remove the main executable
 fclean: clean
-	@make fclean -C lib/libft
-	@make fclean -C lib/ft_printf
 	@rm -f $(NAME)
 
 # Rebuild target: full clean and build all
